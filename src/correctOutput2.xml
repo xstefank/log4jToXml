@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" reset="false">
+    <appender class="" name="CONSOLE">
+        <filter class="org.apache.log4j.varia.StringMatchFilter">
+            <param name="StringToMatch" value="${my.StringToMatch}"/>
+        </filter>
+        <filter class="org.apache.log4j.varia.LevelMatchFilter">
+            <param name="LevelToMatch" value="WARN"/>
+            <param name="AcceptOnMatch" value="false"/>
+        </filter>
+        <filter class="org.apache.log4j.varia.LevelMatchFilter">
+            <param name="LevelToMatch" value="${my.LevelToMatch}"/>
+        </filter>
+        <filter class="org.apache.log4j.varia.LevelMatchFilter">
+            <param name="NoSuchProperty" value="no-such-value"/>
+        </filter>
+        <filter class="org.apache.log4j.varia.DenyAllFilter"/>
+        <filter class="filterClass">
+            <param name="param1" value="filterParm1"/>
+            <param name="param2" value="filterParm2"/>
+        </filter>
+        <filter class="filterClass">
+            <param name="param3" value="filterParm3"/>
+            <param name="param1" value="filterParm1"/>
+            <param name="param2" value="filterParm2"/>
+        </filter>
+        <filter class="filterClass">
+            <param name="param1" value="filterParm1"/>
+        </filter>
+        <filter class="filterClass">
+            <param name="param1" value="filterParm1"/>
+        </filter>
+        <filter class="filterClass">
+            <param name="param1" value="filterParm1"/>
+        </filter>
+        <filter class="filterClass">
+            <param name="param3" value="filterParm3"/>
+            <param name="param4" value="filterParm4"/>
+            <param name="param1" value="filterParm1"/>
+            <param name="param2" value="filterParm2"/>
+        </filter>
+    </appender>
+</log4j:configuration>
