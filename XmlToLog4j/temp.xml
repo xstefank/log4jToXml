@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE log4j:configuration SYSTEM "src/main/resources/log4j.dtd"><log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  
+
+<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+<errorHandler class="org.apache.log4j.varia.FallbackErrorHandler">
+     <root-ref></root-ref>
+	<logger-ref ref="com.foo"></logger-ref>
+	<logger-ref ref="com.fooHaa"></logger-ref>
+     <appender-ref ref="stdout"></appender-ref>
+</errorHandler>
+  <param name="File" value="C:/temp/test.log"></param>
+  <layout class="org.apache.log4j.PatternLayout">
+    <param name="ConversionPattern" value="%d %-5p %30.30c - %m%n"></param>
+  </layout>
+
+<filter class="filterClass">
+            <param name="param1" value="filterParm1"></param>
+            <param name="param2" value="filterParm2"></param>
+        </filter>
+
+ <appender-ref ref="File"></appender-ref>
+        <appender-ref ref="stdout"></appender-ref>
+
+</appender>
+
+  
+<appender name="File" class="org.apache.log4j.FileAppender">
+        <param name="File" value="C:\logs\logs.log"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="conversionPattern" value="%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n"></param>
+        </layout>
+    </appender>
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n"></param>
+        </layout>
+    </appender>
+
+<category name="org.apache.log4j.xml">
+    <priority value="debug"></priority>
+    <appender-ref ref="stdout"></appender-ref>
+  </category>
+
+<logger additivity="false" name="com.foo">
+    <!-- Print only messages of level warn or above in the package com.foo -->
+    <level value="warn"></level> 
+	<appender-ref ref="stdout"></appender-ref>
+	<appender-ref ref="File"></appender-ref>
+  </logger>
+<logger name="com.fooHaa">
+    <!-- Print only messages of level warn or above in the package com.foo -->
+    <level value="warn"></level> 
+  </logger>
+
+    <root>
+        <level value="info"></level>
+        <appender-ref ref="File"></appender-ref>
+        <appender-ref ref="stdout"></appender-ref>
+    </root>
+</log4j:configuration>

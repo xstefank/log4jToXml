@@ -1,0 +1,31 @@
+07-05-2015 23:38:49 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 41 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: /home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/contacts.xml (No such file or directory) Nested exception: /home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/contacts.xml (No such file or directory)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:321)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:95)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:39)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Nested exception: 
+java.io.FileNotFoundException: /home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/contacts.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:622)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:189)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:812)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:321)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:95)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:39)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+07-05-2015 23:41:26 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 107 - Attribute "sth" must be declared for element type "appender".
+07-05-2015 23:42:04 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 108 - Attribute "sth" must be declared for element type "appender".
+07-05-2015 23:42:59 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 107 - Attribute "sth" must be declared for element type "appender".
+07-05-2015 23:43:06 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 107 - Attribute "sth" must be declared for element type "appender".

@@ -1,0 +1,22 @@
+08-06-2015 09:54:14 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 81 - Error opening input file; Invalid input file name: ../testData/test01.xml
+javax.xml.stream.XMLStreamException: ParseError at [row,col]:[21,11]
+Message: The element type "filter" must be terminated by the matching end-tag "</filter>".
+	at com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl.next(XMLStreamReaderImpl.java:601)
+	at com.sun.xml.internal.stream.XMLEventReaderImpl.nextEvent(XMLEventReaderImpl.java:83)
+	at javax.xml.stream.util.EventReaderDelegate.nextEvent(EventReaderDelegate.java:89)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$DTDReplacer.nextEvent(XmlToLog4jConverterImpl.java:454)
+	at com.sun.xml.internal.stream.writers.XMLEventWriterImpl.add(XMLEventWriterImpl.java:70)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.addDTDDeclaration(XmlToLog4jConverterImpl.java:400)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:79)
+	at cz.fi.muni.pb138.Main.main(Main.java:22)
+08-06-2015 09:55:14 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 81 - Error opening input file: ../testData/test01.xml
+javax.xml.stream.XMLStreamException: ParseError at [row,col]:[21,11]
+Message: The element type "filter" must be terminated by the matching end-tag "</filter>".
+	at com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl.next(XMLStreamReaderImpl.java:601)
+	at com.sun.xml.internal.stream.XMLEventReaderImpl.nextEvent(XMLEventReaderImpl.java:83)
+	at javax.xml.stream.util.EventReaderDelegate.nextEvent(EventReaderDelegate.java:89)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$DTDReplacer.nextEvent(XmlToLog4jConverterImpl.java:454)
+	at com.sun.xml.internal.stream.writers.XMLEventWriterImpl.add(XMLEventWriterImpl.java:70)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.addDTDDeclaration(XmlToLog4jConverterImpl.java:400)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:79)
+	at cz.fi.muni.pb138.Main.main(Main.java:22)

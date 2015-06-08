@@ -1,0 +1,350 @@
+05-06-2015 17:56:49 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 125 - Document root element "lo4j:configuration", must match DOCTYPE root "log4j:configuration".
+05-06-2015 17:56:49 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 125 - Element type "lo4j:configuration" must be declared.
+05-06-2015 17:56:49 FATAL [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.fatalError 129 - The prefix "lo4j" for element "lo4j:configuration" is not bound.
+05-06-2015 17:56:49 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Error on line 3 of document file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml : The prefix "lo4j" for element "lo4j:configuration" is not bound. Nested exception: The prefix "lo4j" for element "lo4j:configuration" is not bound.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:115)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Nested exception: 
+org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 3; columnNumber: 68; The prefix "lo4j" for element "lo4j:configuration" is not bound.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:115)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+05-06-2015 17:57:37 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 125 - Document root element "lo4j:configuration", must match DOCTYPE root "log4j:configuration".
+05-06-2015 17:57:37 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 125 - Element type "lo4j:configuration" must be declared.
+05-06-2015 17:57:37 FATAL [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.fatalError 129 - The prefix "lo4j" for element "lo4j:configuration" is not bound.
+05-06-2015 17:57:38 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Error on line 3 of document file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml : The prefix "lo4j" for element "lo4j:configuration" is not bound. Nested exception: The prefix "lo4j" for element "lo4j:configuration" is not bound.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:115)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Nested exception: 
+org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 3; columnNumber: 68; The prefix "lo4j" for element "lo4j:configuration" is not bound.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:115)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+05-06-2015 18:00:13 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 119 - Document root element "lo4j:configuration", must match DOCTYPE root "log4j:configuration".
+05-06-2015 18:00:13 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 119 - Element type "lo4j:configuration" must be declared.
+05-06-2015 18:00:13 FATAL [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.fatalError 123 - The prefix "lo4j" for element "lo4j:configuration" is not bound.
+05-06-2015 18:00:13 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Error on line 3 of document file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml : The prefix "lo4j" for element "lo4j:configuration" is not bound. Nested exception: The prefix "lo4j" for element "lo4j:configuration" is not bound.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:482)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:109)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Nested exception: 
+org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 3; columnNumber: 68; The prefix "lo4j" for element "lo4j:configuration" is not bound.
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1239)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:109)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+05-06-2015 18:00:42 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 119 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:01:16 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 119 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:01:36 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 119 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:03:00 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 120 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:03:00 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:109)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:121)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:109)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
+05-06-2015 18:03:35 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 119 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:03:46 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 120 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:03:46 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:109)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:121)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:109)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
+05-06-2015 18:05:49 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 119 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:08:33 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 121 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:08:33 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:122)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:20)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
+05-06-2015 18:09:29 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 121 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:09:29 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:122)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
+05-06-2015 18:10:19 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 121 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:10:19 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:122)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
+05-06-2015 18:11:31 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 121 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:11:31 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:122)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
+05-06-2015 18:11:40 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 121 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:11:40 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:122)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
+05-06-2015 18:12:29 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error 121 - The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+05-06-2015 18:12:29 ERROR [main] - cz.fi.muni.pb138.XmlToLog4jConverterImpl.load 53 - Error parsing input file: ../testData/test01.xml
+org.dom4j.DocumentException: Invalid input file content; Error parsing input file Nested exception: Invalid input file content; Error parsing input file
+	at org.dom4j.io.SAXReader.read(SAXReader.java:484)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Nested exception: 
+java.lang.IllegalArgumentException: Invalid input file content; Error parsing input file
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl$SimpleErrorHandler.error(XmlToLog4jConverterImpl.java:122)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:137)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:437)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:325)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleEndElement(XMLDTDValidator.java:1994)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.endElement(XMLDTDValidator.java:879)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1782)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2973)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:117)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:649)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:291)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.parse(XmlToLog4jConverterImpl.java:110)
+	at cz.fi.muni.pb138.XmlToLog4jConverterImpl.load(XmlToLog4jConverterImpl.java:51)
+	at cz.fi.muni.pb138.Main.main(Main.java:21)
+Caused by: org.xml.sax.SAXParseException; systemId: file:/home/martin/IV-semester/PB138-Znackovaci_jazyky/project/XmlToLog4j/../testData/test01.xml; lineNumber: 22; columnNumber: 23; The content of element type "log4j:configuration" must match "(renderer*,appender*,(category|logger)*,root?,categoryFactory?)".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:134)
+	... 20 more
