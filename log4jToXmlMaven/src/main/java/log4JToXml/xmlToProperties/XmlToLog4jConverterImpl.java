@@ -5,14 +5,18 @@
  */
 package log4JToXml.xmlToProperties;
 
+import java.io.Console;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.channels.FileChannel;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -27,6 +31,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 import javax.xml.stream.util.EventReaderDelegate;
 import javax.xml.transform.stream.StreamSource;
+import org.apache.commons.io.FileUtils;
 import org.dom4j.Document;
 import org.apache.log4j.Logger;
 import org.dom4j.DocumentException;
@@ -37,23 +42,24 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 /**
- *  Converter log4j.xml to log4j.properties implementation
- * 
+ * Converter log4j.xml to log4j.properties implementation
+ *
  * @author xstefank
- * @version  1.0
+ * @version 1.0
  */
 public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
 
     private static final Logger log = Logger.getLogger(XmlToLog4jConverterImpl.class);
 
     private File tempXML;
+    private File tempDTD;
     private PrintStream documentStream;
     private Document doc;
     private Properties log4jProperties;
 
     /**
      * Constructor for basic converter, default settings
-     * 
+     *
      * @throws IOException if there is problem creating temporary file in project location
      */
     public XmlToLog4jConverterImpl() throws IOException {
@@ -62,18 +68,15 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
         log4jProperties = new LinkedProperties();
         doc = null;
 
-        try{
-            try ( //create new temporary file
-                    PrintWriter temp = new PrintWriter("temp.xml", "UTF-8")) {
-                tempXML = new File("temp.xml");
-                documentStream = new PrintStream(tempXML);
-            }
-        } catch (IOException ex) {
-            log.error("Error creating a temporary file", ex);
-            throw ex;
-        }
+        tempXML = File.createTempFile("tempXML", ".xml");
+        documentStream = new PrintStream(tempXML);
+
+        InputStream initialStream = this.getClass().getResourceAsStream("/log4j.dtd");
+
+        tempDTD = File.createTempFile("tempDTD", ".dtd");
+        FileUtils.copyInputStreamToFile(initialStream, tempDTD);
+
     }
-    
 
     @Override
     public void load(String filename) {
@@ -105,11 +108,10 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
     @Override
     public void convert() {
 
-        if(doc == null) {
+        if (doc == null) {
             throw new IllegalStateException("There is no loaded input to be converted");
         }
-        
-        
+
         //root node parsing, root element is optional
         Node rootNode = doc.selectSingleNode("/log4j:configuration/root");
 
@@ -370,12 +372,11 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
 
     @Override
     public void saveTo(String filename) {
-        
-        if(log4jProperties.isEmpty()) {
+
+        if (log4jProperties.isEmpty()) {
             throw new IllegalStateException("There are no converted properties to be saved");
         }
-        
-        
+
         try (PrintStream output = new PrintStream(new FileOutputStream(filename, false))) {
 
             log4jProperties.list(output);
@@ -386,20 +387,20 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
         }
 
     }
-    
+
     @Override
     public void convertAndSave(String inputFileName, String outputFileName) {
 
         load(inputFileName);
         convert();
         saveTo(outputFileName);
-        
+
     }
 
     private void addDTDDeclaration(String filename) throws XMLStreamException {
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
         XMLEvent dtd = eventFactory
-                .createDTD("<!DOCTYPE log4j:configuration SYSTEM \"log4j.dtd\">");
+                .createDTD("<!DOCTYPE log4j:configuration SYSTEM \"" + tempDTD.getAbsolutePath() + "\">");
 
         XMLInputFactory inFactory = XMLInputFactory.newInstance();
         XMLOutputFactory outFactory = XMLOutputFactory.newInstance();
@@ -423,6 +424,25 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
         reader.setValidation(true);
         reader.setErrorHandler(new SimpleErrorHandler());
         return reader.read(url);
+    }
+
+    private static void copyFile(File sourceFile, File destFile) throws IOException {
+
+        FileChannel source = null;
+        FileChannel destination = null;
+
+        try {
+            source = new FileInputStream(sourceFile).getChannel();
+            destination = new FileOutputStream(destFile).getChannel();
+            destination.transferFrom(source, 0, source.size());
+        } finally {
+            if (source != null) {
+                source.close();
+            }
+            if (destination != null) {
+                destination.close();
+            }
+        }
     }
 
     private class SimpleErrorHandler implements ErrorHandler {
@@ -493,7 +513,7 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
                 out.println(key.toString() + "=" + linkMap.get(key));
             }
         }
-        
+
         @Override
         public boolean isEmpty() {
             return linkMap.isEmpty();
@@ -522,7 +542,6 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
                     + "use keySet() or entrySet() instead");
         }
 
-        
         @Override
         public synchronized void clear() {
             linkMap.clear();

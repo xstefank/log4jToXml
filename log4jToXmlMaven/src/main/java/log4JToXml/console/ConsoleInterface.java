@@ -2,6 +2,7 @@ package log4JToXml.console;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import log4JToXml.xmlToProperties.XmlToLog4jConverter;
 import log4JToXml.xmlToProperties.XmlToLog4jConverterImpl;
 //import org.apache.log4j.Logger;
@@ -51,6 +52,7 @@ public class ConsoleInterface
 //                log.error("Cannot create temporary file in your directory", ex);
                 
                 //TODO
+                System.err.println(ex);
                  System.err.println("bla perm");
                 System.exit(1);
             }
