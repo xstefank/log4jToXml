@@ -64,6 +64,7 @@
                 <configuration>
                     <archive>
                         <manifest>
+                            <addClasspath>true</addClasspath>
                             <mainClass>log4JToXml.console.ConsoleInterface</mainClass>
                         </manifest>
                     </archive>

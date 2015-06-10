@@ -1,8 +1,13 @@
 package log4JToXml.console;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.util.Properties;
+import log4JToXml.propertiesToXml.XmlPropertiesBuilder;
 import log4JToXml.xmlToProperties.XmlToLog4jConverter;
 import log4JToXml.xmlToProperties.XmlToLog4jConverterImpl;
 //import org.apache.log4j.Logger;
@@ -27,6 +32,7 @@ public class ConsoleInterface
     {
         ConsoleInterface logXML = new ConsoleInterface();
         logXML.parseArgs(args);
+        logXML.setOutputFile();
         if(logXML.toXml && logXML.toProperties)
         {
             System.err.println("to many arguments (both -x and -p are used), cannot convert file, use -h to help");
@@ -39,31 +45,63 @@ public class ConsoleInterface
         }
         else if(logXML.toXml)
         {
-            logXML.checkInputFile();
-            //TO DO
+            logXML.convertToXML();
         }
         else if(logXML.toProperties)
         {
-            XmlToLog4jConverter converter  = null;
-            try {
-                logXML.checkInputFile();
-               converter = new XmlToLog4jConverterImpl();
-            } catch (IOException ex) {
+            logXML.convertToProperties();
+        }
+    }
+
+    private void convertToProperties()
+    {
+        XmlToLog4jConverter converter  = null;
+        try {
+           checkInputFile();
+            converter = new XmlToLog4jConverterImpl();
+        } catch (IOException ex) {
 //                log.error("Cannot create temporary file in your directory", ex);
-                
-                //TODO
-                System.err.println(ex);
-                 System.err.println("bla perm");
-                System.exit(1);
-            }
-            
-            try {
-            converter.convert(logXML.input);
-            } catch(IllegalArgumentException ex) {
-                //TODO
-            }
-            
-            converter.saveTo(logXML.output);
+            //TODO
+            System.err.println(ex);
+            System.err.println("bla perm");
+            System.exit(1);
+        }
+        
+        try {
+            converter.convert(input);
+        } catch(IllegalArgumentException ex) {
+            //TODO
+        }
+        
+        converter.saveTo(output);
+    }
+
+    private void convertToXML()
+    {
+        checkInputFile();
+        Properties properties = new Properties();
+        File f = new File(input);
+        try
+        {
+            InputStream is = new FileInputStream(f);
+            properties.load(is);
+        }
+        catch (IOException ex)
+        {
+            System.err.println(ex);
+            System.err.println("Input file couldn't be open.");
+            System.exit(1);
+        }
+        XmlPropertiesBuilder propertiesBuilder = new XmlPropertiesBuilder(properties);
+        try
+        {
+            propertiesBuilder.saveXmlDocument(output);
+        }
+        catch (IOException ex)
+        {
+            System.err.println(ex);
+            System.err.println("output file couldn't be save.");
+            System.exit(2);
         }
     }
 
@@ -120,7 +158,8 @@ public class ConsoleInterface
                     toProperties = true;
                     break;
                 case "-p":
-                    input = args[i++];
+                    i++;
+                    input = args[i];
                     toXml = true;
                     break;
                 case "-n":
@@ -134,5 +173,30 @@ public class ConsoleInterface
             i++;
         }
     }
+    private void setOutputFile()
+        {
+            if(output != null)
+            {
+                File outputFile = new File(output);
+                if (!outputFile.canWrite())
+                {
+                    System.err.println("Cannot to write output file.");
+                    System.exit(2);
+                }
+            }
+            else
+            {
+                String end;
+                if (toXml)
+                {
+                    end = ".xml";
+                }
+                else
+                {
+                    end = ".properties";
+                }
+                output = input + end;
+            }   
+        }
 }
 
