@@ -2,15 +2,13 @@ package log4JToXml.console;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.util.Properties;
 import log4JToXml.propertiesToXml.XmlPropertiesBuilder;
 import log4JToXml.xmlToProperties.XmlToLog4jConverter;
 import log4JToXml.xmlToProperties.XmlToLog4jConverterImpl;
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -23,7 +21,7 @@ public class ConsoleInterface
     private String output = null;
     private boolean toXml = false;
     private boolean toProperties = false;
-//    private static final Logger log = Logger.getLogger(XmlToLog4jConverterImpl.class);
+    private static final Logger log = Logger.getLogger(XmlToLog4jConverterImpl.class);
     
     /**
      * @param args the command line arguments
@@ -60,9 +58,7 @@ public class ConsoleInterface
            checkInputFile();
             converter = new XmlToLog4jConverterImpl();
         } catch (IOException ex) {
-//                log.error("Cannot create temporary file in your directory", ex);
-            //TODO
-            System.err.println(ex);
+            log.error("Cannot create temporary file in your directory", ex);
             System.err.println("bla perm");
             System.exit(1);
         }
@@ -70,7 +66,9 @@ public class ConsoleInterface
         try {
             converter.convert(input);
         } catch(IllegalArgumentException ex) {
-            //TODO
+            log.error("Input file is not valid xml", ex);
+            System.err.println("Input file is not valid xml file.");
+            System.exit(1);
         }
         
         converter.saveTo(output);
@@ -88,7 +86,7 @@ public class ConsoleInterface
         }
         catch (IOException ex)
         {
-            System.err.println(ex);
+            log.error("Cannot load file", ex);
             System.err.println("Input file couldn't be open.");
             System.exit(1);
         }
@@ -99,7 +97,7 @@ public class ConsoleInterface
         }
         catch (IOException ex)
         {
-            System.err.println(ex);
+            log.error("Cannot save file", ex);
             System.err.println("output file couldn't be save.");
             System.exit(2);
         }
@@ -175,16 +173,7 @@ public class ConsoleInterface
     }
     private void setOutputFile()
         {
-            if(output != null)
-            {
-                /*File outputFile = new File(output);
-                if (!outputFile.canWrite())
-                {
-                    System.err.println("Cannot to write output file.");
-                    System.exit(2);
-                }*/
-            }
-            else
+            if(output == null)
             {
                 String end;
                 if (toXml)
