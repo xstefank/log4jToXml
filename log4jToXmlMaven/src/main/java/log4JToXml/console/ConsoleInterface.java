@@ -177,12 +177,12 @@ public class ConsoleInterface
         {
             if(output != null)
             {
-                File outputFile = new File(output);
+                /*File outputFile = new File(output);
                 if (!outputFile.canWrite())
                 {
                     System.err.println("Cannot to write output file.");
                     System.exit(2);
-                }
+                }*/
             }
             else
             {
