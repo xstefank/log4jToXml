@@ -12,16 +12,20 @@ public class Main
 {
 
 	private static final String PROPERTIES_NAME = "log4j4.properties";
-	/**
-	 * W3C object model representation of a XML document. Note: We use the
-	 * interface(!) not its implementation
-	 */
+	
 	private Document doc;
 
 	public static void main(String[] args) throws ParserConfigurationException, TransformerConfigurationException
 	{
-		Properties config = loadProperties(PROPERTIES_NAME);
-		XmlPropertiesBuilder xml = new XmlPropertiesBuilder(config);
+		try
+		{
+			Properties config = loadProperties(PROPERTIES_NAME);
+			XmlPropertiesBuilder xml = new XmlPropertiesBuilder(config);
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Unable to load properties.");
+		}
 	}
 
 	private static Properties loadProperties(String propertiesName)

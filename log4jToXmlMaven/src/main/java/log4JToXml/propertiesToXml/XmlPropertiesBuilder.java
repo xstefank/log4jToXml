@@ -45,11 +45,6 @@ public class XmlPropertiesBuilder {
         }
         this.all = all;
 
-        //look for the logger names in the rootLogger property
-        String rootLogger = config.getProperty("log4j.rootLogger");
-        String[] split = rootLogger.split(",");
-        //the first value is a level, the rest are logger names
-        String level = split[0];
         Set<String> appenderNames = all.stream()
                 .filter(o -> o.getLevel(1).equals("appender"))
                 .map(o -> o.getLevel(2))
@@ -120,23 +115,28 @@ public class XmlPropertiesBuilder {
 
     private void handleRootLogger() {
         //log4j.rootLogger=LEVEL, appender-ref
-        Element rootElem = doc.createElement("root");
+		try{
+			Package line = all.stream()
+					.filter(o -> o.getLevel(1).equals("rootLogger")).findFirst().get();
 
-        Package line = all.stream()
-                .filter(o -> o.getLevel(1).equals("rootLogger")).findFirst().get();
+			String[] rootChildren = line.getValue().split(",");
+			Element rootElem = doc.createElement("root");
+			Element levelElem = doc.createElement("level");
+			addLevelAttribute(rootElem, rootChildren[0]);
 
-        String[] rootChildren = line.getValue().split(",");
+			for (int i = 1; i < rootChildren.length; i++) {
+				Element appenderRefElement = doc.createElement("appender-ref");
+				appenderRefElement.setAttribute("ref", rootChildren[i].trim());
+				rootElem.appendChild(appenderRefElement);
+			}
 
-        Element levelElem = doc.createElement("level");
-        addLevelAttribute(rootElem, rootChildren[0]);
-
-        for (int i = 1; i < rootChildren.length; i++) {
-            Element appenderRefElement = doc.createElement("appender-ref");
-            appenderRefElement.setAttribute("ref", rootChildren[i].trim());
-            rootElem.appendChild(appenderRefElement);
-        }
-
-        doc.getDocumentElement().appendChild(rootElem);
+			doc.getDocumentElement().appendChild(rootElem);
+		}
+		catch(NoSuchElementException ex)
+		{
+			//this is fine.
+			System.out.println("No root logger present in the configuration.");
+		}
     }
 
     private void addLevelAttribute(Element parentElem, String levelValue) {
@@ -167,7 +167,7 @@ public class XmlPropertiesBuilder {
         Transformer transformer = null;
         try {
             transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "./src/main/resources/log4j.dtd");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "../log4j.dtd");
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
@@ -176,7 +176,7 @@ public class XmlPropertiesBuilder {
         try {
             try ( //create new temporary file
                     PrintWriter temp = new PrintWriter(path, "UTF-8")) {
-                File tempXML = new File(path);
+					File tempXML = new File(path);
 //                result = new StreamResult(tempXML);
                 result = new StreamResult(new File(path).getPath());
             }
