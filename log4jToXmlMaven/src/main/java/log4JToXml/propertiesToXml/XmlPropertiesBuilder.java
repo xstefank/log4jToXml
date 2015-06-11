@@ -25,11 +25,11 @@ public class XmlPropertiesBuilder {
     private List<Package> all;
     public static List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
 
-	/**
-	 * Upon instantiation, builds an xml file which is a Log4J configuration equivalent to the input .properties file.
-	 * Remember to call save()
-	 * @param config the .properties file containing the Log4J configuration
-	 */
+    /**
+     * Upon instantiation, builds an xml file which is a Log4J configuration equivalent to the input .properties file. Remember to call save()
+     *
+     * @param config the .properties file containing the Log4J configuration
+     */
     public XmlPropertiesBuilder(Properties config) {
         this.config = config;
         createEmptyDocument();
@@ -53,7 +53,7 @@ public class XmlPropertiesBuilder {
         handleAppenders(appenderNames);
         handleRootLogger();
         handleLoggers();
-		handleCategories();
+        handleCategories();
     }
 
     private void handleLoggers() {
@@ -64,7 +64,7 @@ public class XmlPropertiesBuilder {
     }
 
     private void handleCategories() {
-		//log4j.category.DataNucleus.Utility=WARN, A1
+        //log4j.category.DataNucleus.Utility=WARN, A1
         //this behaves exactly the same way as a logger
         Set<Package> categoryLines = all.stream()
                 .filter(o -> o.getLevel(1).equals("category"))
@@ -92,11 +92,10 @@ public class XmlPropertiesBuilder {
                 Optional<Package> additivityParameter = additivityLines.stream()
                         .filter(o -> o.groupLevelsFrom(2).equals(className))
                         .findFirst();
-				
-				if(additivityParameter.isPresent() && additivityParameter.get().getValue().equals("false"))
-				{
-					elem.setAttribute("additivity","false");
-				}
+
+                if (additivityParameter.isPresent() && additivityParameter.get().getValue().equals("false")) {
+                    elem.setAttribute("additivity", "false");
+                }
                 //elem.setAttribute("additivity", additivityParameter.isPresent() ? additivityParameter.get().getValue() : "true");
 
                 String[] split = line.getValue().split(",");
@@ -117,28 +116,26 @@ public class XmlPropertiesBuilder {
 
     private void handleRootLogger() {
         //log4j.rootLogger=LEVEL, appender-ref
-		try{
-			Package line = all.stream()
-					.filter(o -> o.getLevel(1).equals("rootLogger")).findFirst().get();
+        try {
+            Package line = all.stream()
+                    .filter(o -> o.getLevel(1).equals("rootLogger")).findFirst().get();
 
-			String[] rootChildren = line.getValue().split(",");
-			Element rootElem = doc.createElement("root");
-			Element levelElem = doc.createElement("level");
-			addLevelAttribute(rootElem, rootChildren[0]);
+            String[] rootChildren = line.getValue().split(",");
+            Element rootElem = doc.createElement("root");
+            Element levelElem = doc.createElement("level");
+            addLevelAttribute(rootElem, rootChildren[0]);
 
-			for (int i = 1; i < rootChildren.length; i++) {
-				Element appenderRefElement = doc.createElement("appender-ref");
-				appenderRefElement.setAttribute("ref", rootChildren[i].trim());
-				rootElem.appendChild(appenderRefElement);
-			}
+            for (int i = 1; i < rootChildren.length; i++) {
+                Element appenderRefElement = doc.createElement("appender-ref");
+                appenderRefElement.setAttribute("ref", rootChildren[i].trim());
+                rootElem.appendChild(appenderRefElement);
+            }
 
-			doc.getDocumentElement().appendChild(rootElem);
-		}
-		catch(NoSuchElementException ex)
-		{
-			//this is fine.
-			System.out.println("No root logger present in the configuration.");
-		}
+            doc.getDocumentElement().appendChild(rootElem);
+        } catch (NoSuchElementException ex) {
+            //this is fine.
+            System.out.println("No root logger present in the configuration.");
+        }
     }
 
     private void addLevelAttribute(Element parentElem, String levelValue) {
@@ -163,18 +160,20 @@ public class XmlPropertiesBuilder {
         }
     }
 
-	/**
-	 * Saves the converted XML document
-	 * @param path where to save the file
-	 * @throws IOException when the saving goes wrong
-	 */
+    /**
+     * Saves the converted XML document
+     *
+     * @param path where to save the file
+     * @throws IOException when the saving goes wrong
+     */
     public void saveXmlDocument(String path) throws IOException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
         Transformer transformer = null;
         try {
             transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "log4j.dtd");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC,
+                               "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd");
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
@@ -183,8 +182,7 @@ public class XmlPropertiesBuilder {
         try {
             try ( //create new temporary file
                     PrintWriter temp = new PrintWriter(path, "UTF-8")) {
-					File tempXML = new File(path);
-//                result = new StreamResult(tempXML);
+                File tempXML = new File(path);
                 result = new StreamResult(new File(path).getPath());
             }
         } catch (IOException ex) {
