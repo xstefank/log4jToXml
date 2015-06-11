@@ -5,7 +5,6 @@
  */
 package log4JToXml.xmlToProperties;
 
-import java.io.Console;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.util.Enumeration;
@@ -80,6 +78,12 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
 
     @Override
     public void load(String filename) {
+        
+        if(filename == null) {
+            throw new IllegalArgumentException("path cannot be null");
+        }
+        
+        
         URL url = null;
 
         //add DTD declaration, fill temp file
@@ -372,6 +376,10 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
 
     @Override
     public void saveTo(String filename) {
+        
+        if(filename == null) {
+            throw new IllegalArgumentException("path cannot be null");
+        }
 
         if (log4jProperties.isEmpty()) {
             throw new IllegalStateException("There are no converted properties to be saved");
