@@ -25,10 +25,10 @@ import org.xml.sax.SAXException;
 public class XMLComparison
 {
 
-    Document document1;
-    Document document2;
-    Set<String> set1 = new TreeSet<>();
-    Set<String> set2 = new TreeSet<>();
+    private Document document1;
+    private Document document2;
+    private Set<String> set1 = new TreeSet<>();
+    private Set<String> set2 = new TreeSet<>();
 
     /**
      * Constructor for basic comparing 2 xml files
@@ -75,13 +75,8 @@ public class XMLComparison
         Element root2 = document2.getDocumentElement();
         paths(root1, root1.getNodeName(), set1);
         paths(root2, root2.getNodeName(), set2);
-
-        if (set1.equals(set2))
-        {
-            return true;
-        }
-        return false;
-
+        
+        return set1.equals(set2);
     }
 
     private void paths(Element element, String path, Set<String> set)

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "../log4j.dtd">
+<!--Inorrect xml, appenders class is missing-->
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
   <appender name="stdout" class="org.apache.log4j.ConsoleAppender"> 
     <layout class="org.apache.log4j.PatternLayout">
       <param name="ConversionPattern" value="%5p [%t] (%F:%L) - %m%n"/> 
     </layout> 
   </appender> 
-  <appender name="R" class="org.apache.log4j.RollingFileAppender"> 
+  <appender name="R"> 
     <param name="File" value="example.log"/>
     <param name="MaxFileSize" value="100KB"/>
     <param name="MaxBackupIndex" value="1"/>
@@ -16,6 +17,7 @@
   </appender> 
   <root> 
     <level value ="DEBUG" /> 
-    <appender-ref ref="stdout" />
+    <appender-ref ref="stdout" /> 
+    <appender-ref ref="R" /> 
   </root>
 </log4j:configuration>
