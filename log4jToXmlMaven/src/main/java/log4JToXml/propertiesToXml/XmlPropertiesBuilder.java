@@ -174,7 +174,7 @@ public class XmlPropertiesBuilder {
         Transformer transformer = null;
         try {
             transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "../log4j.dtd");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "log4j.dtd");
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }

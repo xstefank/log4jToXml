@@ -33,7 +33,7 @@ public class XMLComparison
     /**
      * Constructor for basic comparing 2 xml files
      *
-     * @param document1
+     * @param document1 
      * @param document2
      * @throws IllegalArgumentException
      * @throws ParserConfigurationException
