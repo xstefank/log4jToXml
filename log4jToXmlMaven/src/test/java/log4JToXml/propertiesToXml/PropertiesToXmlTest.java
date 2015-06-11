@@ -49,7 +49,7 @@ public class PropertiesToXmlTest
     }
 
     @Test
-    public void propertiesToXmlCorrectTest() throws IllegalArgumentException, ParserConfigurationException, IOExceptio
+    public void propertiesToXmlCorrectTest() throws IllegalArgumentException, ParserConfigurationException, IOException
     {
         Properties config = loadProperties("testData/propertiestest2.properties");
         XmlPropertiesBuilder xml = new XmlPropertiesBuilder(config);
