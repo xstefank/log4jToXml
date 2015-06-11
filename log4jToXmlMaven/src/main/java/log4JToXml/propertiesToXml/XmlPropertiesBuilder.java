@@ -23,13 +23,13 @@ public class XmlPropertiesBuilder {
     private Document doc;
     private Properties config;
     private List<Package> all;
-    /**
-     * Outputs an xml file which is a Log4J configuration equivalent to the input .properties file
-     *
-     * @param config the .properties file containing the Log4J configuration
-     */
-    public static List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "TRACE_INT", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
+    public static List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
 
+	/**
+	 * Upon instantiation, builds an xml file which is a Log4J configuration equivalent to the input .properties file.
+	 * Remember to call save()
+	 * @param config the .properties file containing the Log4J configuration
+	 */
     public XmlPropertiesBuilder(Properties config) {
         this.config = config;
         createEmptyDocument();
@@ -53,8 +53,7 @@ public class XmlPropertiesBuilder {
         handleAppenders(appenderNames);
         handleRootLogger();
         handleLoggers();
-        handleCategories();
-        //saveXmlDocument();
+		handleCategories();
     }
 
     private void handleLoggers() {
@@ -87,15 +86,18 @@ public class XmlPropertiesBuilder {
 
             for (Package line : lines) {
                 String className = line.groupLevelsFrom(2);
-                System.out.println(className);
 
                 Element elem = areWeDoingLoggersNow ? doc.createElement("logger") : doc.createElement("category");
                 elem.setAttribute("name", className);
                 Optional<Package> additivityParameter = additivityLines.stream()
-                        .filter(o -> o.groupLevelsFrom(2).equals("className"))
+                        .filter(o -> o.groupLevelsFrom(2).equals(className))
                         .findFirst();
-
-                elem.setAttribute("additivity", additivityParameter.isPresent() ? additivityParameter.get().getValue() : "true");
+				
+				if(additivityParameter.isPresent() && additivityParameter.get().getValue().equals("false"))
+				{
+					elem.setAttribute("additivity","false");
+				}
+                //elem.setAttribute("additivity", additivityParameter.isPresent() ? additivityParameter.get().getValue() : "true");
 
                 String[] split = line.getValue().split(",");
                 addLevelAttribute(elem, split[0]);
@@ -156,11 +158,16 @@ public class XmlPropertiesBuilder {
                     .filter(o -> appenderName.equals(o.getLevel(2)))
                     .collect(Collectors.toList());
 
-            AppenderParser appenderParser = new AppenderParser();
+            log4JToXml.propertiesToXml.AppenderParser appenderParser = new log4JToXml.propertiesToXml.AppenderParser();
             appenderParser.parse(relevantProperties, all, doc);
         }
     }
 
+	/**
+	 * Saves the converted XML document
+	 * @param path where to save the file
+	 * @throws IOException when the saving goes wrong
+	 */
     public void saveXmlDocument(String path) throws IOException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
@@ -184,8 +191,6 @@ public class XmlPropertiesBuilder {
             throw ex;
         }
 
-        
-        //StreamResult result = new StreamResult(System.out);
         try {
             transformer.transform(source, result);
         } catch (TransformerException ex) {
