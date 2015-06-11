@@ -36,7 +36,7 @@ public class PropertiesComparison {
     }
     
     /**
-     * Compares if two files are equal
+     * Returns true if two files are equal
      * 
      * @return true - files are equal; false - files are not equal
      * @throws FileNotFoundException

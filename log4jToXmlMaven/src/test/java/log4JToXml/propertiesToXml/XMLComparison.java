@@ -79,6 +79,13 @@ public class XMLComparison
         return set1.equals(set2);
     }
 
+    /**
+     * Convert XML into set
+     * 
+     * @param element
+     * @param path
+     * @param set 
+     */
     private void paths(Element element, String path, Set<String> set)
     {
         NamedNodeMap atr = element.getAttributes();
@@ -112,7 +119,11 @@ public class XMLComparison
             }
         }
     }
-    
+    /**
+     * Checks if file is correct
+     * 
+     * @param file 
+     */
     private void checkFile(File file)
     {
         if (file == null)

@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class XmlToPropertiesTest {
     
     /**
-     * Tests correct log4j.xml
+     * Tests xml to properties conversion
      * 
      * @throws IOException 
      */
@@ -32,7 +32,7 @@ public class XmlToPropertiesTest {
     }
     
     /**
-     * Tests correct log4j.xml without root
+     * Tests xml to properties conversion without root
      * 
      * @throws IOException 
      */
@@ -50,7 +50,7 @@ public class XmlToPropertiesTest {
     }
     
     /**
-     * Tests incorrect log4j.xml without appender without class
+     * Tests xml to properties conversion without appender without class
      * 
      * @throws IOException 
      */
@@ -63,7 +63,7 @@ public class XmlToPropertiesTest {
     }
     
     /**
-     * Tests incorrect log4j.xml with parameter without value
+     * Tests xml to properties conversion with parameter without value
      * 
      * @throws IOException 
      */
@@ -76,7 +76,7 @@ public class XmlToPropertiesTest {
     }
     
     /**
-     * Tests incorrect log4j.xml with icorrectly placed parameter
+     * Tests xml to properties conversion with icorrectly placed parameter
      * 
      * @throws IOException 
      */
@@ -89,7 +89,7 @@ public class XmlToPropertiesTest {
     }
     
     /**
-     * Tests functions
+     * Tests functions convert(String) and saveTo(String)
      * 
      * @throws IOException 
      */
@@ -107,6 +107,11 @@ public class XmlToPropertiesTest {
         assertTrue(com.compare());
     }
     
+    /**
+     * Tests xml to properties conversion without input file
+     * 
+     * @throws IOException 
+     */
     @Test(expected = IllegalArgumentException.class)
     public void xmlToPropertiesTestNullInput() throws IOException{
         String input = null;
@@ -115,6 +120,11 @@ public class XmlToPropertiesTest {
         xml.convertAndSave(input, output);
     }
     
+    /**
+     * Tests xml to properties conversion without output file
+     * 
+     * @throws IOException 
+     */
     @Test(expected = IllegalArgumentException.class)
     public void xmlToPropertiesTestNullOutput() throws IOException{
         String input = "src/main/resources/testData/xmltest1.xml";
@@ -123,6 +133,11 @@ public class XmlToPropertiesTest {
         xml.convertAndSave(input, output);
     }
     
+    /**
+     * Tests xml to properties conversion with nonexisting file
+     * 
+     * @throws IOException 
+     */
     @Test(expected = IllegalArgumentException.class)
     public void xmlToPropertiesTestNonexistentInput() throws IOException{
         String input = "src/main/resources/testData/xmltest6.xml";
@@ -131,6 +146,11 @@ public class XmlToPropertiesTest {
         xml.convertAndSave(input, output);
     }
     
+    /**
+     * Tests xml to properties conversion with non-xml file
+     * 
+     * @throws IOException 
+     */
     @Test(expected = IllegalArgumentException.class)
     public void xmlToPropertiesTestNotXmlInput() throws IOException{
         String input = "src/main/resources/testData/propertiestest1.properties";

@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 public class PropertiesToXmlTest 
 {
     /**
-     * Tests correct log4j.properties
+     * Tests properties to xml conversion
      * 
      * @throws IllegalArgumentException
      * @throws ParserConfigurationException
@@ -37,7 +37,7 @@ public class PropertiesToXmlTest
     }
     
     /**
-     * Tests correct log4j.properties without root
+     * Tests properties to xml conversion without root
      * 
      * @throws IllegalArgumentException
      * @throws ParserConfigurationException
@@ -55,7 +55,7 @@ public class PropertiesToXmlTest
     }
     
      /**
-      * Tests incorrect log4j.properties with appender without class
+      * Tests properties to xml conversion with appender without class
       * 
       * @throws IOException 
       */
@@ -66,7 +66,7 @@ public class PropertiesToXmlTest
         xml.saveXmlDocument("src/main/resources/testData/propertiesToXmlTestOutput3.xml");
     }
     /**
-     * Tests incorrect log4j.properties with parameter without value
+     * Tests properties to xml conversion with parameter without value
      * 
      * @throws IOException 
      */
@@ -78,7 +78,7 @@ public class PropertiesToXmlTest
     }
     
     /**
-     * Tests incorrect log4j.properties with icorrectly placed parameter
+     * Tests properties to xml conversion with icorrectly placed parameter
      * 
      * @throws IOException 
      */
@@ -86,14 +86,24 @@ public class PropertiesToXmlTest
     public void propertiesToXmlTest5() throws IOException {
         Properties config = loadProperties("testData/propertiestest5.properties");
         XmlPropertiesBuilder xml = new XmlPropertiesBuilder(config);
-        xml.saveXmlDocument("src/main/resources/tehwrstData/propertiesToXmlTestOutput5.xml");
+        xml.saveXmlDocument("src/main/resources/testData/propertiesToXmlTestOutput5.xml");
     }
     
+    /**
+     * Tests properties to xml conversion without input file
+     */
     @Test(expected = IllegalArgumentException.class)
-    public void nullProperiesTest(){
+    public void nullProperiesTest() {
         XmlPropertiesBuilder xml = new XmlPropertiesBuilder(null);
     }
     
+    /**
+     * Tests properties to xml conversion without output file
+     * 
+     * @throws IllegalArgumentException
+     * @throws ParserConfigurationException
+     * @throws IOException 
+     */
     @Test(expected = IllegalArgumentException.class)
     public void nullSaveTest() throws IllegalArgumentException, ParserConfigurationException, IOException
     {
@@ -102,6 +112,13 @@ public class PropertiesToXmlTest
         xml.saveXmlDocument(null);
     }
     
+    /**
+     * Tests properties to xml conversion with non-properties input
+     * 
+     * @throws IllegalArgumentException
+     * @throws ParserConfigurationException
+     * @throws IOException 
+     */
     @Test(expected = IllegalArgumentException.class)
     public void notAPropertieFileTest() throws IllegalArgumentException, ParserConfigurationException, IOException
     {
