@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: log4JToXml.xmlToProperties.XmlToPropertiesTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.925 sec <<< FAILURE!
-xmlToPropertiesTestNullOutput(log4JToXml.xmlToProperties.XmlToPropertiesTest)  Time elapsed: 0.049 sec  <<< ERROR!
+Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.901 sec <<< FAILURE!
+xmlToPropertiesTestNullOutput(log4JToXml.xmlToProperties.XmlToPropertiesTest)  Time elapsed: 0.037 sec  <<< ERROR!
 java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.NullPointerException>
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
