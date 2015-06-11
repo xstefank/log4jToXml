@@ -30,7 +30,14 @@ public class XmlPropertiesBuilder {
      *
      * @param config the .properties file containing the Log4J configuration
      */
-    public XmlPropertiesBuilder(Properties config) {
+    public XmlPropertiesBuilder(Properties config) 
+	{
+		if (config == null) {
+			throw new IllegalArgumentException("The config parameter cannot be null.");
+		}
+		if (config.keySet().isEmpty()) {
+			throw new IllegalArgumentException("The supplied properties file is empty");
+		}
         this.config = config;
         createEmptyDocument();
         Element root = doc.createElement("log4j:configuration");
@@ -40,11 +47,19 @@ public class XmlPropertiesBuilder {
         List<Package> all = new ArrayList<>();
         for (Object s : config.keySet()) {
             String st = (String) s;
+			if(!st.startsWith("log4j"))
+			{
+				throw new IllegalArgumentException("The file seems to be invalid. Every property should start with log4j.");
+			}
+			if(config.getProperty(st).trim().equals(""))
+			{
+				throw new IllegalArgumentException("The properties file is invalid. A property only has whitespace for a value.");
+			}
             Package aPackage = new Package(config.getProperty(st), Arrays.asList(st.split("\\.")));
             all.add(aPackage);
         }
         this.all = all;
-
+		
         Set<String> appenderNames = all.stream()
                 .filter(o -> o.getLevel(1).equals("appender"))
                 .map(o -> o.getLevel(2))
@@ -167,13 +182,16 @@ public class XmlPropertiesBuilder {
      * @throws IOException when the saving goes wrong
      */
     public void saveXmlDocument(String path) throws IOException {
+		if(path==null)
+		{
+			throw new IllegalArgumentException("The path to the file cannot be null.");
+		}
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
         Transformer transformer = null;
         try {
             transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC,
-                               "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "../log4j.dtd");
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }

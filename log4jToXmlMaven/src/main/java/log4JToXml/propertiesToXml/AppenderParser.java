@@ -29,14 +29,23 @@ public class AppenderParser
 
 		Element appenderElem = doc.createElement("appender");
 		this.appender = appenderElem;
+		try
+		{
 		Package appenderType = lines.stream()
 				.filter(o -> o.numLevels() == 3)
 				.findFirst()
 				.get();
 
 		appender.setAttribute("class", appenderType.getValue());
+		
+		
 		appender.setAttribute("name", appenderName);
 		lines.remove(appenderType);
+		}
+		catch(NoSuchElementException ex)
+		{
+			throw new IllegalArgumentException("The properties file is invalid (appender has no class defined)", ex);
+		}
 		for (Package line : lines)
 		{
 			//first the special cases
