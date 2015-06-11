@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import log4JToXml.gui.Gui;
 import log4JToXml.propertiesToXml.XmlPropertiesBuilder;
 import log4JToXml.xmlToProperties.XmlToLog4jConverter;
 import log4JToXml.xmlToProperties.XmlToLog4jConverterImpl;
@@ -12,17 +13,19 @@ import org.apache.log4j.Logger;
 
 /**
  * Console interface for log4jtoxml
+ *
  * @author Lukas Linhart
  * @version 1.0
  */
 public class ConsoleInterface
 {
+
     private String input = null;
     private String output = null;
     private boolean toXml = false;
     private boolean toProperties = false;
     private static final Logger log = Logger.getLogger(XmlToLog4jConverterImpl.class);
-    
+
     /**
      * @param args the command line arguments
      */
@@ -31,21 +34,21 @@ public class ConsoleInterface
         ConsoleInterface logXML = new ConsoleInterface();
         logXML.parseArgs(args);
         logXML.setOutputFile();
-        if(logXML.toXml && logXML.toProperties)
+        if (logXML.toXml && logXML.toProperties)
         {
             System.err.println("to many arguments (both -x and -p are used), cannot convert file, use -h to help");
             System.exit(1);
         }
-        else if(!logXML.toXml && !logXML.toProperties)
+        else if (!logXML.toXml && !logXML.toProperties)
         {
             System.err.println("to few arguments, cannot conert file, use -h to help");
             System.exit(1);
         }
-        else if(logXML.toXml)
+        else if (logXML.toXml)
         {
             logXML.convertToXML();
         }
-        else if(logXML.toProperties)
+        else if (logXML.toProperties)
         {
             logXML.convertToProperties();
         }
@@ -53,24 +56,30 @@ public class ConsoleInterface
 
     private void convertToProperties()
     {
-        XmlToLog4jConverter converter  = null;
-        try {
-           checkInputFile();
+        XmlToLog4jConverter converter = null;
+        try
+        {
+            checkInputFile();
             converter = new XmlToLog4jConverterImpl();
-        } catch (IOException ex) {
+        }
+        catch (IOException ex)
+        {
             log.error("Cannot create temporary file in your directory", ex);
             System.err.println("bla perm");
             System.exit(1);
         }
-        
-        try {
+
+        try
+        {
             converter.convert(input);
-        } catch(IllegalArgumentException ex) {
+        }
+        catch (IllegalArgumentException ex)
+        {
             log.error("Input file is not valid xml", ex);
             System.err.println("Input file is not valid xml file.");
             System.exit(1);
         }
-        
+
         converter.saveTo(output);
     }
 
@@ -106,23 +115,23 @@ public class ConsoleInterface
     private void checkInputFile()
     {
         File inputFile = new File(input);
-        if(!inputFile.exists())
+        if (!inputFile.exists())
         {
-            System.err.println("Input file " + input + " doesn't exist." );
+            System.err.println("Input file " + input + " doesn't exist.");
             System.exit(2);
         }
-        if(inputFile.isDirectory())
+        if (inputFile.isDirectory())
         {
-            System.err.println("Input file " + input + " is directory." );
+            System.err.println("Input file " + input + " is directory.");
             System.exit(2);
         }
-        if(!inputFile.canRead())
+        if (!inputFile.canRead())
         {
-            System.err.println("Input file " + input + " cannot read." );
+            System.err.println("Input file " + input + " cannot read.");
             System.exit(2);
         }
     }
- 
+
     private void help()
     {
         System.out.println("Log4jToXML is program for converting log4j configuration"
@@ -139,16 +148,19 @@ public class ConsoleInterface
                 + "Use -h to display this description");
         System.exit(0);
     }
-    
+
     private void parseArgs(String args[])
     {
         int i = 0;
-        while(i < args.length)
+        while (i < args.length)
         {
-            switch(args[i])
+            switch (args[i])
             {
                 case "-h":
                     help();
+                    break;
+                 case "-g":
+                    graphicInterface();
                     break;
                 case "-x":
                     i++;
@@ -171,21 +183,27 @@ public class ConsoleInterface
             i++;
         }
     }
-    private void setOutputFile()
-        {
-            if(output == null)
-            {
-                String end;
-                if (toXml)
-                {
-                    end = ".xml";
-                }
-                else
-                {
-                    end = ".properties";
-                }
-                output = input + end;
-            }   
-        }
-}
 
+    private void setOutputFile()
+    {
+        if (output == null)
+        {
+            String end;
+            if (toXml)
+            {
+                end = ".xml";
+            }
+            else
+            {
+                end = ".properties";
+            }
+            output = input + end;
+        }
+    }
+    private void graphicInterface()
+    {
+        String[] args = null;
+        Gui.main(args);
+        System.exit(0);
+    }
+}
