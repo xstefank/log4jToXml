@@ -24,6 +24,7 @@ public class ConsoleInterface
     private String output = null;
     private boolean toXml = false;
     private boolean toProperties = false;
+    private boolean graphical = false;
     private static final Logger log = Logger.getLogger(XmlToLog4jConverterImpl.class);
 
     /**
@@ -34,23 +35,30 @@ public class ConsoleInterface
         ConsoleInterface logXML = new ConsoleInterface();
         logXML.parseArgs(args);
         logXML.setOutputFile();
-        if (logXML.toXml && logXML.toProperties)
+        if (logXML.graphical)
         {
-            System.err.println("to many arguments (both -x and -p are used), cannot convert file, use -h to help");
-            System.exit(1);
+            Gui.main(args);
         }
-        else if (!logXML.toXml && !logXML.toProperties)
+        else
         {
-            System.err.println("to few arguments, cannot conert file, use -h to help");
-            System.exit(1);
-        }
-        else if (logXML.toXml)
-        {
-            logXML.convertToXML();
-        }
-        else if (logXML.toProperties)
-        {
-            logXML.convertToProperties();
+            if (logXML.toXml && logXML.toProperties)
+            {
+                System.err.println("to many arguments (both -x and -p are used), cannot convert file, use -h to help");
+                System.exit(1);
+            }
+            else if (!logXML.toXml && !logXML.toProperties)
+            {
+                System.err.println("to few arguments, cannot conert file, use -h to help");
+                System.exit(1);
+            }
+            else if (logXML.toXml)
+            {
+                logXML.convertToXML();
+            }
+            else if (logXML.toProperties)
+            {
+                logXML.convertToProperties();
+            }
         }
     }
 
@@ -143,7 +151,9 @@ public class ConsoleInterface
                 + "xml to propertie file use -x argument\n"
                 + "Syntax: -x filepath\n\n"
                 + "For rename or change path of output file use -n argument\n"
-                + "Syntax: -n filepath/name"
+                + "Syntax: -n filepath/name\n"
+                + "For launch graphical application use -g argument\n"
+                + "Syntax: -g\n"
                 + "if not used ouput file will be in same directory where is input file with same name\n"
                 + "Use -h to display this description");
         System.exit(0);
@@ -159,9 +169,9 @@ public class ConsoleInterface
                 case "-h":
                     help();
                     break;
-                 case "-g":
-                    graphicInterface();
-                    break;
+                case "-g":
+                    graphical = true;
+                    return;
                 case "-x":
                     i++;
                     input = args[i];
@@ -199,11 +209,5 @@ public class ConsoleInterface
             }
             output = input + end;
         }
-    }
-    private void graphicInterface()
-    {
-        String[] args = null;
-        Gui.main(args);
-        System.exit(0);
     }
 }

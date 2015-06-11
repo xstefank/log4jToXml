@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: log4JToXml.xmlToProperties.XmlToProperties
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.204 sec
