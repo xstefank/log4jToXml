@@ -7,7 +7,7 @@
     </layout> 
   </appender> 
   <appender name="R" class="org.apache.log4j.RollingFileAppender"> 
-    <param name="file" value="example.log"/>
+    <param name="File" value="example.log"/>
     <param name="MaxFileSize" value="100KB"/>
     <param name="MaxBackupIndex" value="1"/>
     <layout class="org.apache.log4j.PatternLayout"> 
@@ -15,7 +15,7 @@
     </layout> 
   </appender> 
   <root> 
-    <priority value ="debug" /> 
+    <level value ="DEBUG" /> 
     <appender-ref ref="stdout" />
   </root>
 </log4j:configuration>

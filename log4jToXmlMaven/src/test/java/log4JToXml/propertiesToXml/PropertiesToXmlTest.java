@@ -49,13 +49,13 @@ public class PropertiesToXmlTest
     }
 
     @Test
-    public void propertiesToXmlCorrectTest() throws IllegalArgumentException, ParserConfigurationException, IOExceptio
+    public void propertiesToXmlCorrectTest() throws IllegalArgumentException, ParserConfigurationException, IOException
     {
-        Properties config = loadProperties("testData/propertiestest2.properties");
+        Properties config = loadProperties("testData/my.properties");
         XmlPropertiesBuilder xml = new XmlPropertiesBuilder(config);
         xml.saveXmlDocument("testoutput1.xml");
         File output = new File("testoutput1.xml");
-        File reference = new File("src/main/resources/testData/xmltest2.xml");
+        File reference = new File("src/main/resources/testData/test01.xml");
         XMLComparison com = new XMLComparison(output, reference);
         assertTrue(com.compare());
     }
