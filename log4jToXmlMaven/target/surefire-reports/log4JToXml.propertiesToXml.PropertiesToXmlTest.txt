@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: log4JToXml.propertiesToXml.PropertiesToXmlTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 3, Errors: 5, Skipped: 0, Time elapsed: 0.27 sec <<< FAILURE!
-notAPropertieFileTest(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.147 sec  <<< ERROR!
+Tests run: 8, Failures: 3, Errors: 5, Skipped: 0, Time elapsed: 0.25 sec <<< FAILURE!
+notAPropertieFileTest(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.133 sec  <<< ERROR!
 java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.ArrayIndexOutOfBoundsException>
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
@@ -50,7 +50,7 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1
 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
 	... 21 more
-propertiesToXmlTest1(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.063 sec  <<< FAILURE!
+propertiesToXmlTest1(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.057 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -85,7 +85,7 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-propertiesToXmlTest2(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.007 sec  <<< FAILURE!
+propertiesToXmlTest2(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.008 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -120,7 +120,7 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-propertiesToXmlTest3(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.001 sec  <<< ERROR!
+propertiesToXmlTest3(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.002 sec  <<< ERROR!
 java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.util.NoSuchElementException>
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
@@ -160,7 +160,7 @@ Caused by: java.util.NoSuchElementException: No value present
 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
 	... 21 more
-propertiesToXmlTest4(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+propertiesToXmlTest4(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:32)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
@@ -264,7 +264,7 @@ Caused by: java.lang.NullPointerException
 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
 	... 21 more
-nullSaveTest(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.002 sec  <<< ERROR!
+nullSaveTest(log4JToXml.propertiesToXml.PropertiesToXmlTest)  Time elapsed: 0.006 sec  <<< ERROR!
 java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.NullPointerException>
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)

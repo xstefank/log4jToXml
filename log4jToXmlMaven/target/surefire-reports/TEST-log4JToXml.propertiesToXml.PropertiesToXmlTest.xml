@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="3" name="log4JToXml.propertiesToXml.PropertiesToXmlTest" time="0.27" errors="5" skipped="0">
+<testsuite tests="8" failures="3" name="log4JToXml.propertiesToXml.PropertiesToXmlTest" time="0.25" errors="5" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -42,7 +42,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/home/martin/netbeans-8.0.2/java/maven-nblib/netbeans-eventspy.jar clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/home/martin/netbeans-8.0.2/java/maven-nblib/netbeans-eventspy.jar test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -60,7 +60,7 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="notAPropertieFileTest" time="0.147">
+  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="notAPropertieFileTest" time="0.133">
     <error message="Unexpected exception, expected&lt;java.lang.IllegalArgumentException&gt; but was&lt;java.lang.ArrayIndexOutOfBoundsException&gt;" type="java.lang.Exception">java.lang.Exception: Unexpected exception, expected&lt;java.lang.IllegalArgumentException&gt; but was&lt;java.lang.ArrayIndexOutOfBoundsException&gt;
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
@@ -110,7 +110,7 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1
 	... 21 more
 </error>
   </testcase>
-  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest1" time="0.063">
+  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest1" time="0.057">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -149,7 +149,7 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1
     <system-err>Warning: Could not get charToByteConverterClass!
 </system-err>
   </testcase>
-  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest2" time="0.007">
+  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest2" time="0.008">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -188,7 +188,7 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1
     <system-out>No root logger present in the configuration.
 </system-out>
   </testcase>
-  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest3" time="0.001">
+  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest3" time="0.002">
     <error message="Unexpected exception, expected&lt;java.lang.IllegalArgumentException&gt; but was&lt;java.util.NoSuchElementException&gt;" type="java.lang.Exception">java.lang.Exception: Unexpected exception, expected&lt;java.lang.IllegalArgumentException&gt; but was&lt;java.util.NoSuchElementException&gt;
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
@@ -230,7 +230,7 @@ Caused by: java.util.NoSuchElementException: No value present
 	... 21 more
 </error>
   </testcase>
-  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest4" time="0.003">
+  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="propertiesToXmlTest4" time="0.002">
     <failure message="Expected exception: java.lang.IllegalArgumentException" type="java.lang.AssertionError">java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:32)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
@@ -340,7 +340,7 @@ Caused by: java.lang.NullPointerException
 	... 21 more
 </error>
   </testcase>
-  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="nullSaveTest" time="0.002">
+  <testcase classname="log4JToXml.propertiesToXml.PropertiesToXmlTest" name="nullSaveTest" time="0.006">
     <error message="Unexpected exception, expected&lt;java.lang.IllegalArgumentException&gt; but was&lt;java.lang.NullPointerException&gt;" type="java.lang.Exception">java.lang.Exception: Unexpected exception, expected&lt;java.lang.IllegalArgumentException&gt; but was&lt;java.lang.NullPointerException&gt;
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
