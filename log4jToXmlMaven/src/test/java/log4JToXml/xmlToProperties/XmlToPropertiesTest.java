@@ -89,7 +89,7 @@ public class XmlToPropertiesTest {
     }
     
     /**
-     * Tests functions convert(String) and saveTo(String)
+     * Tests methods convert(String) and saveTo(String)
      * 
      * @throws IOException 
      */
@@ -113,7 +113,7 @@ public class XmlToPropertiesTest {
      * @throws IOException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void xmlToPropertiesTestNullInput() throws IOException{
+    public void nullXmlTest() throws IOException{
         String input = null;
         String output = "src/main/resources/testData/XmlToPropertiesTestOutput1.properties";
         XmlToLog4jConverterImpl xml = new XmlToLog4jConverterImpl();
@@ -126,7 +126,7 @@ public class XmlToPropertiesTest {
      * @throws IOException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void xmlToPropertiesTestNullOutput() throws IOException{
+    public void nullSaveTest() throws IOException{
         String input = "src/main/resources/testData/xmltest1.xml";
         String output = null;
         XmlToLog4jConverterImpl xml = new XmlToLog4jConverterImpl();
@@ -139,7 +139,7 @@ public class XmlToPropertiesTest {
      * @throws IOException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void xmlToPropertiesTestNonexistentInput() throws IOException{
+    public void nonexistentXmlTest() throws IOException{
         String input = "src/main/resources/testData/xmltest6.xml";
         String output = "src/main/resources/testData/XmlToPropertiesTestOutput1.properties";
         XmlToLog4jConverterImpl xml = new XmlToLog4jConverterImpl();
@@ -152,7 +152,7 @@ public class XmlToPropertiesTest {
      * @throws IOException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void xmlToPropertiesTestNotXmlInput() throws IOException{
+    public void notAnXmlTest() throws IOException{
         String input = "src/main/resources/testData/propertiestest1.properties";
         String output = "src/main/resources/testData/XmlToPropertiesTestOutput1.properties";
         XmlToLog4jConverterImpl xml = new XmlToLog4jConverterImpl();
