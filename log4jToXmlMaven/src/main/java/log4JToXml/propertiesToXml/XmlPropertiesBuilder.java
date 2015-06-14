@@ -24,7 +24,7 @@ public class XmlPropertiesBuilder {
     private Properties config;
     private List<Package> all;
     private static List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
-	private static List<String> validLvl1 = new ArrayList<>(Arrays.asList("appender","logger","category","additivity","threshold","debug","rootCategory","rootLogger"));
+	private static List<String> validLvl1 = new ArrayList<>(Arrays.asList("appender","logger","category","additivity","threshold","debug","rootCategory","rootLogger", "renderer", "level"));
 
     /**
      * Upon instantiation, builds an xml file which is a Log4J configuration equivalent to the input .properties file. Remember to call save()
@@ -74,6 +74,7 @@ public class XmlPropertiesBuilder {
         handleRootLogger();
         handleLoggers();
         handleCategories();
+		handleRenderers();
     }
 
     private void handleLoggers() {
@@ -179,6 +180,21 @@ public class XmlPropertiesBuilder {
             appenderParser.parse(relevantProperties, doc);
         }
     }
+	
+	
+	private void handleRenderers() {
+		List<Package> relevantLines = all.stream()
+				.filter(o->o.getLevel(1).equals("renderer"))
+				.collect(Collectors.toList());
+		
+		for(Package line : relevantLines)
+		{
+			Element rendererElement = doc.createElement("renderer");
+			rendererElement.setAttribute("renderedClass", line.groupLevelsFrom(2));
+			rendererElement.setAttribute("renderingClass", line.getValue());
+			doc.appendChild(rendererElement);
+		}
+	}
 
     /**
      * Saves the converted XML document

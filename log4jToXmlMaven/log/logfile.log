@@ -750,3 +750,11 @@ Message: Content is not allowed in prolog.
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+14-06-2015 15:11:37 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
+14-06-2015 15:14:33 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
+14-06-2015 15:16:23 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
+14-06-2015 15:17:37 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
+14-06-2015 15:19:12 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
+14-06-2015 15:25:34 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
+14-06-2015 15:33:26 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
+14-06-2015 16:57:33 ERROR [main] - log4JToXml.propertiesToXml.AppenderParser.parse 47 - java.util.NoSuchElementException: No value present
