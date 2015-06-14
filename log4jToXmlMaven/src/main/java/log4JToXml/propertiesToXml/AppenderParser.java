@@ -5,27 +5,27 @@ import org.w3c.dom.Element;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import log4JToXml.xmlToProperties.XmlToLog4jConverterImpl;
+import org.apache.log4j.Logger;
 
 /**
  * Created by FH on 7.5.2015.
  */
 public class AppenderParser
 {
+	private static final Logger log = Logger.getLogger(XmlToLog4jConverterImpl.class);
 	private Document doc;
 	private Element appender;
-	private List<Package> all;
-
 	/**
 	 *
 	 * @param lines properties relevant to the current appender
 	 * @param all all of the properties, because some properties out of the scope of the appender are required
 	 * @param doc the Document we are building
 	 */
-	public void parse(List<Package> lines, List<Package> all, Document doc)
+	public void parse(List<Package> lines, Document doc)
 	{
 		String appenderName = lines.get(0).getLevel(2);
 		this.doc = doc;
-		this.all = all;
 
 		Element appenderElem = doc.createElement("appender");
 		this.appender = appenderElem;
@@ -44,6 +44,7 @@ public class AppenderParser
 		}
 		catch(NoSuchElementException ex)
 		{
+			log.error(ex);
 			throw new IllegalArgumentException("The properties file is invalid (appender has no class defined)", ex);
 		}
 		for (Package line : lines)
