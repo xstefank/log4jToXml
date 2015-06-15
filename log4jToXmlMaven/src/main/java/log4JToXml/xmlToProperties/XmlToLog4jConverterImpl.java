@@ -78,12 +78,11 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
 
     @Override
     public void load(String filename) {
-        
-        if(filename == null) {
+
+        if (filename == null) {
             throw new IllegalArgumentException("path cannot be null");
         }
-        
-        
+
         URL url = null;
 
         //add DTD declaration, fill temp file
@@ -116,6 +115,57 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
             throw new IllegalStateException("There is no loaded input to be converted");
         }
 
+        processRoot();
+
+        processRenderers();
+
+        processAppenders();
+
+        processCategories();
+
+        processLoggers();
+
+    }
+
+    @Override
+    public void convert(String filename) {
+
+        load(filename);
+        convert();
+    }
+
+    @Override
+    public void saveTo(String filename) {
+
+        if (filename == null) {
+            throw new IllegalArgumentException("path cannot be null");
+        }
+
+        if (log4jProperties.isEmpty()) {
+            throw new IllegalStateException("There are no converted properties to be saved");
+        }
+
+        try (PrintStream output = new PrintStream(new FileOutputStream(filename, false))) {
+
+            log4jProperties.list(output);
+
+        } catch (FileNotFoundException ex) {
+            log.error("Directory not found; Invalid path", ex);
+            throw new IllegalArgumentException("Directory not found; Invalid path", ex);
+        }
+
+    }
+
+    @Override
+    public void convertAndSave(String inputFileName, String outputFileName) {
+
+        load(inputFileName);
+        convert();
+        saveTo(outputFileName);
+
+    }
+
+    private void processRoot() {
         //root node parsing, root element is optional
         Node rootNode = doc.selectSingleNode("/log4j:configuration/root");
 
@@ -146,7 +196,9 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
             }
 
         }
+    }
 
+    private void processRenderers() {
         //renderer nodes, optional
         List<Node> rendererNodes = doc.selectNodes("/log4j:configuration/renderer");
 
@@ -156,7 +208,9 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
                         renderer.valueOf("@renderingClass"));
             }
         }
+    }
 
+    private void processAppenders() {
         //appender nodes, optional
         List<Node> appenderNodes = doc.selectNodes("/log4j:configuration/appender");
 
@@ -283,7 +337,9 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
                 }
             }
         }
-
+    }
+    
+    private void processCategories() {
         //category, optional
         List<Node> categoryNodes = doc.selectNodes("/log4j:configuration/category");
 
@@ -331,7 +387,9 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
                 }
             }
         }
-
+    }
+    
+    private void processLoggers() {
         //logger, optional
         List<Node> loggerNodes = doc.selectNodes("/log4j:configuration/logger");
 
@@ -365,44 +423,6 @@ public class XmlToLog4jConverterImpl implements XmlToLog4jConverter {
                 }
             }
         }
-    }
-
-    @Override
-    public void convert(String filename) {
-
-        load(filename);
-        convert();
-    }
-
-    @Override
-    public void saveTo(String filename) {
-        
-        if(filename == null) {
-            throw new IllegalArgumentException("path cannot be null");
-        }
-
-        if (log4jProperties.isEmpty()) {
-            throw new IllegalStateException("There are no converted properties to be saved");
-        }
-
-        try (PrintStream output = new PrintStream(new FileOutputStream(filename, false))) {
-
-            log4jProperties.list(output);
-
-        } catch (FileNotFoundException ex) {
-            log.error("Directory not found; Invalid path", ex);
-            throw new IllegalArgumentException("Directory not found; Invalid path", ex);
-        }
-
-    }
-
-    @Override
-    public void convertAndSave(String inputFileName, String outputFileName) {
-
-        load(inputFileName);
-        convert();
-        saveTo(outputFileName);
-
     }
 
     private void addDTDDeclaration(String filename) throws XMLStreamException {
