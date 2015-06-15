@@ -23,7 +23,8 @@ public class XmlPropertiesBuilder {
     private Document doc;
     private Properties config;
     private List<Package> all;
-    public static List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
+    private static List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
+	private static List<String> validLvl1 = new ArrayList<>(Arrays.asList("appender","logger","category","additivity","threshold","debug","rootCategory","rootLogger", "renderer", "level"));
 
     /**
      * Upon instantiation, builds an xml file which is a Log4J configuration equivalent to the input .properties file. Remember to call save()
@@ -56,6 +57,10 @@ public class XmlPropertiesBuilder {
 				throw new IllegalArgumentException("The properties file is invalid. A property only has whitespace for a value.");
 			}
             Package aPackage = new Package(config.getProperty(st), Arrays.asList(st.split("\\.")));
+			if(!validLvl1.contains(aPackage.getLevel(1)))
+			{
+				throw new IllegalArgumentException("The properties file is invalid. Unrecognized property "+aPackage.getLevel(1)+" in "+aPackage.groupLevelsFrom(0));
+			}
             all.add(aPackage);
         }
         this.all = all;
@@ -69,6 +74,7 @@ public class XmlPropertiesBuilder {
         handleRootLogger();
         handleLoggers();
         handleCategories();
+		handleRenderers();
     }
 
     private void handleLoggers() {
@@ -171,9 +177,24 @@ public class XmlPropertiesBuilder {
                     .collect(Collectors.toList());
 
             log4JToXml.propertiesToXml.AppenderParser appenderParser = new log4JToXml.propertiesToXml.AppenderParser();
-            appenderParser.parse(relevantProperties, all, doc);
+            appenderParser.parse(relevantProperties, doc);
         }
     }
+	
+	
+	private void handleRenderers() {
+		List<Package> relevantLines = all.stream()
+				.filter(o->o.getLevel(1).equals("renderer"))
+				.collect(Collectors.toList());
+		
+		for(Package line : relevantLines)
+		{
+			Element rendererElement = doc.createElement("renderer");
+			rendererElement.setAttribute("renderedClass", line.groupLevelsFrom(2));
+			rendererElement.setAttribute("renderingClass", line.getValue());
+			doc.appendChild(rendererElement);
+		}
+	}
 
     /**
      * Saves the converted XML document

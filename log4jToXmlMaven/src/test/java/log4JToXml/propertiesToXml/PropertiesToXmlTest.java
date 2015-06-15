@@ -78,18 +78,6 @@ public class PropertiesToXmlTest
     }
     
     /**
-     * Tests properties to xml conversion with icorrectly placed parameter
-     * 
-     * @throws IOException 
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void propertiesToXmlTest5() throws IOException {
-        Properties config = loadProperties("testData/propertiestest5.properties");
-        XmlPropertiesBuilder xml = new XmlPropertiesBuilder(config);
-        xml.saveXmlDocument("src/main/resources/testData/propertiesToXmlTestOutput5.xml");
-    }
-    
-    /**
      * Tests properties to xml conversion without input file
      */
     @Test(expected = IllegalArgumentException.class)
