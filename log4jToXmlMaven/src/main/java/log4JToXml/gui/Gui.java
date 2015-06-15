@@ -19,8 +19,9 @@ import log4JToXml.xmlToProperties.XmlToLog4jConverter;
 import log4JToXml.xmlToProperties.XmlToLog4jConverterImpl;
 
 /**
- *
- * @author Admin
+ * Graphical interface for log4jToXml for simple converting configuration files
+ * @author Lukáš Linhart
+ * @version 1.0
  */
 public class Gui extends javax.swing.JFrame
 {

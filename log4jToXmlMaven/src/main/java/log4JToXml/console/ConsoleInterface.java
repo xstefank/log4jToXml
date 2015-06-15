@@ -12,7 +12,7 @@ import log4JToXml.xmlToProperties.XmlToLog4jConverterImpl;
 import org.apache.log4j.Logger;
 
 /**
- * Console interface for log4jtoxml
+ * Console interface for log4jtoxml 
  *
  * @author Lukas Linhart
  * @version 1.0
