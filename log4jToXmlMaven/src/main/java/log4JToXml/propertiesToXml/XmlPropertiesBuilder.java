@@ -23,8 +23,12 @@ public class XmlPropertiesBuilder {
     private Document doc;
     private Properties config;
     private List<Package> all;
-    private static List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
-	private static List<String> validLvl1 = new ArrayList<>(Arrays.asList("appender","logger","category","additivity","threshold","debug","rootCategory","rootLogger", "renderer", "level"));
+	
+	private static final String XMLNS_Log4j = "http://jakarta.apache.org/log4j/";
+	private static final String DOCTYPE_STRING = "../log4j.dtd";
+	
+    private static final List<String> OUTPUT_LEVELS = new ArrayList<>(Arrays.asList("ALL", "OFF", "TRACE", "DEBUG", "WARN", "INFO", "FATAL", "ERROR"));
+	private static final List<String> validLvl1 = new ArrayList<>(Arrays.asList("appender","logger","category","additivity","threshold","debug","rootCategory","rootLogger", "renderer", "level"));
 
     /**
      * Upon instantiation, builds an xml file which is a Log4J configuration equivalent to the input .properties file. Remember to call save()
@@ -42,7 +46,7 @@ public class XmlPropertiesBuilder {
         this.config = config;
         createEmptyDocument();
         Element root = doc.createElement("log4j:configuration");
-        root.setAttribute("xmlns:log4j", "http://jakarta.apache.org/log4j/");
+        root.setAttribute("xmlns:log4j", XMLNS_Log4j);
         doc.appendChild(root);
 
         List<Package> all = new ArrayList<>();
@@ -117,7 +121,6 @@ public class XmlPropertiesBuilder {
                 if (additivityParameter.isPresent() && additivityParameter.get().getValue().equals("false")) {
                     elem.setAttribute("additivity", "false");
                 }
-                //elem.setAttribute("additivity", additivityParameter.isPresent() ? additivityParameter.get().getValue() : "true");
 
                 String[] split = line.getValue().split(",");
                 addLevelAttribute(elem, split[0]);
@@ -176,7 +179,7 @@ public class XmlPropertiesBuilder {
                     .filter(o -> appenderName.equals(o.getLevel(2)))
                     .collect(Collectors.toList());
 
-            log4JToXml.propertiesToXml.AppenderParser appenderParser = new log4JToXml.propertiesToXml.AppenderParser();
+            AppenderParser appenderParser = new AppenderParser();
             appenderParser.parse(relevantProperties, doc);
         }
     }
@@ -212,7 +215,7 @@ public class XmlPropertiesBuilder {
         Transformer transformer = null;
         try {
             transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "../log4j.dtd");
+            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, DOCTYPE_STRING);
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
