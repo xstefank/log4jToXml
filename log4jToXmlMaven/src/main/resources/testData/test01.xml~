@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  
+
+<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+<errorHandler class="org.apache.log4j.varia.FallbackErrorHandler">
+     <root-ref/>
+	<logger-ref ref="com.foo" />
+	<logger-ref ref="com.fooHaa" />
+     <appender-ref ref="stdout"/>
+</errorHandler>
+  <param name="File" value="C:/temp/test.log"/>
+  <layout class="org.apache.log4j.PatternLayout">
+    <param name="ConversionPattern" value="%d %-5p %30.30c - %m%n"/>
+  </layout>
+
+<filter class="filterClass">
+            <param name="param1" value="filterParm1"/>
+            <param name="param2" value="filterParm2"/>
+        </filte
+
+ <appender-ref ref="File"/>
+        <appender-ref ref="stdout"/>
+
+</appender>
+
+  
+<appender class="org.apache.log4j.FileAppender" name="File">
+        <param value="C:\logs\logs.log" name="File"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n" name="conversionPattern"/>
+        </layout>
+    </appender>
+    <appender class="org.apache.log4j.ConsoleAppender" name="stdout">
+        <param value="System.out" name="Target"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n" name="ConversionPattern"/>
+        </layout>
+    </appender>
+
+<category name="org.apache.log4j.xml">
+    <priority value="debug" />
+    <appender-ref ref="stdout" />
+  </category>
+
+<logger name="com.foo" additivity="false">
+    <!-- Print only messages of level warn or above in the package com.foo -->
+    <level value="warn"/> 
+	<appender-ref ref="stdout" />
+	<appender-ref ref="File" />
+  </logger>
+<logger name="com.fooHaa">
+    <!-- Print only messages of level warn or above in the package com.foo -->
+    <level value="warn"/> 
+  </logger>
+
+    <root>
+        <level value="info"/>
+        <appender-ref ref="File"/>
+        <appender-ref ref="stdout"/>
+    </root>
+</log4j:configuration>
